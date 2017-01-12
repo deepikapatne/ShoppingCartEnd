@@ -1,0 +1,20 @@
+package com.niit.shoppingcart.dao;
+
+import java.util.List;
+
+import com.niit.shoppingcart.model.Supplier;
+import com.niit.shoppingcart.model.Supplier;
+
+public interface SupplierDAO {
+
+	public List<Supplier> list();
+
+	public Supplier get(String id);
+
+	public Supplier validate(String id, String password);
+
+	public boolean save(Supplier Supplier);
+
+	public boolean update(Supplier Supplier);
+
+}
