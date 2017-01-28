@@ -1,120 +1,94 @@
-
-
-
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+
 <head>
-<title>Product Page</title>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Add Product</title>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-</head>
+ </head>
 <body>
-	<h1>Add a Product</h1>
+<body>
+<div class="container" >
+  <div id="product" class="col-lg-6 well">
+    <div class="row">
+    <form  action="addproduct"  method="post" enctype = "multipart/form-data">
+      <div class="col-sm-12">
+        <div class="row">
+          	<div class="col-sm-6 form-group">
+              <h4>ID</h4>
+                <input type="text"  name="id" placeholder="ID" required value=${product.id}>
+              </div>
 
-	<c:url var="addAction" value="/manage_product_add?${_csrf.parameterName}=${_csrf.token}"></c:url>
+              <div class="col-sm-6 form-group">
+              <h4>Name</h4>
+                <input type="name" name="name" placeholder="Name" required value=${product.name}>
+              </div>
+           	  <div class="col-sm-6 form-group">
+              <h4>Stock</h4>
+                <input type="number"  name="stock" placeholder="Stock" required value=${product.stock}>
+              </div>
+               <div class="col-sm-6 form-group">
+              <h4>Price</h4>
+              <input type="number"  name="price" placeholder="Price" required value=${product.price}>
+              </div>
 
-	<form:form action="${addAction}" commandName="product"
-		enctype="multipart/form-data" method="post">
-		<table>
-			<tr>
-				<td><form:label path="id">
-						<spring:message text="ID" />
-					</form:label></td>
-				<c:choose>
-					<c:when test="${!empty product.id}">
-						<td><form:input path="id" value="" disabled="true" readonly="true" />
-						</td>
-					</c:when>
+              <div class="col-sm-6 form-group">
+              <h4>Category_Id</h4>
+                 <input type="text"  name="category_id" placeholder="ID" required value=${product.category_id}>
+              </div>
+              
+              <div class="col-sm-6 form-group">
+              <h4>SubCategory_Id</h4>
+                 <input type="text"  name="subcategory_id" placeholder="ID" required value=${product.subcategory_id}>
+              </div>
 
-					<c:otherwise>
-						<td><form:input path="id" pattern=".{5,20}" required="true"
-								title="id should contains 5 to 20 characters" /></td>
-					</c:otherwise>
-				</c:choose>
-			<tr>
-				<form:input path="id" hidden="true" />
-				<td><form:label path="name">
-						<spring:message text="Name" />
-					</form:label></td>
-				<td><form:input path="name" required="true" /></td>
-			</tr>
+              <div class="col-sm-6 form-group">
+              <h4>Supplier_Id</h4>
+                <input type="text"  name="supplier_id" placeholder="ID" required value=${product.supplier_id}>
+              </div>
 
 
-			<tr>
-				<td><form:label path="price">
-						<spring:message text="Price" />
-					</form:label></td>
-				<td><form:input path="price" required="true" /></td>
-			</tr>
+              <div class="col-sm-6 form-group">
+              <h4>Description</h4>
+                <textarea type="name"  name="description" placeholder="Description" required>${product.description}</textarea>
+              </div>
+              
+       	   	  <div class="col-sm-6 form-group">
+              <h4>Product Image</h4>
+                <input type="file"  name="image"  path="image" placeholder="Image" required></input>
+              </div>
+              
+              <div class="col-sm-6 form-group">
+              <h4></h4>
+                <input type="hidden"  name="dummy">
+              </div>
+            </div>
+            <div class="form-actions">
+              <center><button type="submit" class="btn  btn-lg btn ">Add/Update Product</button></center>
+            </div>
 
-			<tr>
-				<td><form:label path="description">
-						<spring:message text="Description" />
-					</form:label></td>
-				<td><form:input path="description" required="true" /></td>
-			</tr>
+      </div>
+    </form>
 
-			<tr>
-				<td><form:label path="supplier">
-						<spring:message text="Supplier" />
-					</form:label></td>
-				<td><form:select path="supplier.name" items="${supplierList}"
-						itemValue="name" itemLabel="name" /></td>
-			</tr>
-			<tr>
-				<td><form:label path="category">
-						<spring:message text="Category" />
-					</form:label></td>
-				<td><form:select path="category.name" items="${categoryList}"
-						itemValue="name" itemLabel="name" /></td>
-			</tr>
-			<tr>
-				<td align="left"><form:label path="image">
-						<spring:message text=" Image" />
-					</form:label></td>
-				<td align="left"><form:input type="file" name="image" path="image" /></td>
-			</tr>
-			<tr>
-				<td colspan="2"><c:if test="${!empty product.name}">
-						<input type="submit" value="<spring:message text="Edit Product"/>" />
-					</c:if> <c:if test="${empty product.name}">
-						<input type="submit" value="<spring:message text="Add Product"/>" />
-					</c:if></td>
-			</tr>
-		</table>
-		
-		<input type="hidden" 
-             name="${_csrf.parameterName}" 
-             value="${_csrf.token}" />
-	</form:form>
-	<br>
+    		<div class="form-actions" style="float: right; font-weight:bold;">
+              <a href="producttable">View Product</a>
+            </div>
+      
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
 
 
 
-	<h3>Product List</h3>
-	<c:if test="${!empty productList}">
-		<table class="tg">
-			<tr>
-				<th width="80">Product ID</th>
-				<th width="120">Product Name</th>
-				<th width="200">Product Description</th>
-				<th width="80">Price</th>
-				<th width="80">Product Category</th>
-				<th width="80">Product Supplier</th>
-				<th width="60">Edit</th>
-				<th width="60">Delete</th>
-			</tr>
-			<c:forEach items="${productList}" var="product">
-				<tr>
-					<td>${product.id}</td>
-					<td>${product.name}</td>
-					<td>${product.description}</td>
-					<td>${product.price}</td>
-					<td>${product.category.name}</td>
-					<td>${product.supplier.name}</td>
-					<td><a href="<c:url value='manage_product_edit/${product.id}' />">Edit</a></td>
-					<td><a href="<c:url value='manage_product_remove/${product.id}' />">Delete</a></td>
-				</tr>
-			</c:forEach>
-		</table>
-	</c:if>
+
 </body>
 </html>
