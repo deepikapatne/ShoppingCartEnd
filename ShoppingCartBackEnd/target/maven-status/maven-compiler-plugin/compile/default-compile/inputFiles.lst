@@ -1,5 +1,14 @@
+C:\myspace\workspace\ShoppingCartBackEnd\src\main\java\com\niit\shoppingcart\dao\ProductDAO.java
+C:\myspace\workspace\ShoppingCartBackEnd\src\main\java\com\niit\shoppingcart\config\ApplicationContextConfig.java
+C:\myspace\workspace\ShoppingCartBackEnd\src\main\java\com\niit\shoppingcart\model\Category.java
+C:\myspace\workspace\ShoppingCartBackEnd\src\main\java\com\niit\shoppingcart\model\Supplier.java
+C:\myspace\workspace\ShoppingCartBackEnd\src\main\java\com\niit\shoppingcart\daoimpl\CategoryDAOImpl.java
+C:\myspace\workspace\ShoppingCartBackEnd\src\main\java\com\niit\shoppingcart\dao\SupplierDAO.java
+C:\myspace\workspace\ShoppingCartBackEnd\src\main\java\com\niit\shoppingcart\dao\CategoryDAO.java
 C:\myspace\workspace\ShoppingCartBackEnd\src\main\java\com\niit\shoppingcart\daoimpl\UserDAOImpl.java
+C:\myspace\workspace\ShoppingCartBackEnd\src\main\java\com\niit\shoppingcart\daoimpl\SupplierDAOImpl.java
 C:\myspace\workspace\ShoppingCartBackEnd\src\main\java\com\niit\shoppingcart\dao\UserDAO.java
 C:\myspace\workspace\ShoppingCartBackEnd\src\main\java\com\niit\shoppingcart\model\User.java
 C:\myspace\workspace\ShoppingCartBackEnd\src\main\java\com\niit\shoppingcartbackend\App.java
-C:\myspace\workspace\ShoppingCartBackEnd\src\main\java\com\niit\shoppingcart\config\ApplicationContextConfig.java
+C:\myspace\workspace\ShoppingCartBackEnd\src\main\java\com\niit\shoppingcart\model\Product.java
+C:\myspace\workspace\ShoppingCartBackEnd\src\main\java\com\niit\shoppingcart\daoimpl\ProductDAOImpl.java

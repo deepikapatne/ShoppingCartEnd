@@ -1,58 +1,50 @@
 package com.niit.shoppingcart.model;
 
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
 
-//map to specific database entity (Table)
-//Which table you have map
-//Create Singleton instance/object
-
 @Entity
-@Table    //if the table name and domain object name is same
-@Component     //user instance       // do not use User u = new User()
+@Table(name="supplier")
+@Component
 public class Supplier {
-	
-	
-	//what are the properties  same as db table fields
-	@Id     //To specify this field is primary key
+	@Id
+	@Column(name="id")
 	private String id;
 	
+	@Column(name = "name")
 	private String name;
 	
+	@Column(name = "address")
 	private String address;
-
-
+	
+	@OneToMany(mappedBy="supplier" ,cascade=CascadeType.ALL,fetch=FetchType.EAGER )
+	
 	public String getId() {
 		return id;
 	}
-
-
 	public void setId(String id) {
 		this.id = id;
 	}
-
-
 	public String getName() {
 		return name;
 	}
-
-
 	public void setName(String name) {
 		this.name = name;
 	}
-
-
-	public String getaddress() {
+	public String getAddress() {
 		return address;
 	}
-
-
-	public void setaddress(String address) {
+	public void setAddress(String address) {
 		this.address = address;
 	}
-
+	
 
 }

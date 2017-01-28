@@ -3,7 +3,6 @@ package com.niit.shoppingcart.dao;
 import java.util.List;
 
 import com.niit.shoppingcart.model.Category;
-import com.niit.shoppingcart.model.Product;
 
 public interface CategoryDAO {
 
@@ -11,8 +10,10 @@ public interface CategoryDAO {
 
 	public Category get(String id);
 
-	public boolean save(Category Category);
+	public  boolean save(Category category);
+	
+	public boolean update(Category category);
 
-	public boolean update(Category Category);
+	public boolean delete(Category category);
 
 }
