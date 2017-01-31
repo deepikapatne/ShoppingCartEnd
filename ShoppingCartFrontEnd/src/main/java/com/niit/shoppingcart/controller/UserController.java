@@ -1,5 +1,7 @@
 package com.niit.shoppingcart.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -18,11 +20,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.niit.shoppingcart.dao.CartDAO;
 import com.niit.shoppingcart.dao.CategoryDAO;
 import com.niit.shoppingcart.dao.ProductDAO;
 import com.niit.shoppingcart.dao.SubCategoryDAO;
 import com.niit.shoppingcart.dao.SupplierDAO;
 import com.niit.shoppingcart.dao.UserDAO;
+import com.niit.shoppingcart.model.Cart;
 import com.niit.shoppingcart.model.Category;
 import com.niit.shoppingcart.model.SubCategory;
 import com.niit.shoppingcart.model.Supplier;
@@ -64,6 +68,9 @@ public class UserController {
 	private SupplierDAO supplierDAO;
 	
 	@Autowired
+	private CartDAO cartDAO;
+	
+	@Autowired
 	private ProductDAO productDAO;
 
 	@Autowired
@@ -101,6 +108,8 @@ public class UserController {
 			session.setAttribute("subcategoryList", subcategoryDAO.list());
 			session.setAttribute("productList", productDAO.list());
 			session.setAttribute("loggedOut", false);
+			List<Cart> cartList = cartDAO.getActiveByUser(User.getId());
+			session.setAttribute("cartItemCount", cartList.size());
 			mv.addObject("ShowMainPage", true);
 			if("ROLE_ADMIN".equalsIgnoreCase(User.getRole())) {
 				session.setAttribute("isAdmin", true);

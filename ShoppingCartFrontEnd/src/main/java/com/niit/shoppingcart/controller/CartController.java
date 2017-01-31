@@ -1,9 +1,9 @@
 package com.niit.shoppingcart.controller;
 
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 import javax.servlet.http.HttpSession;
-
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,73 +36,68 @@ public class CartController {
 	@Autowired
 	private ProductDAO productDAO;
 	
-	@RequestMapping(value= "/cart", method = RequestMethod.GET)
+	@RequestMapping(value= "/cartTable", method = RequestMethod.GET)
 	public String cart(Model model, HttpSession session)
 	{
 		log.debug("Starting of the method cart");
-		model.addAttribute("cart", new Cart());
-		
-		String loggedInUserid = (String)session.getAttribute("loggedInUserID");
-		
-		int cartSize = cartDAO.getbyUser(loggedInUserid).size();
-		
-		if(cartSize==0){
-			model.addAttribute("errorMessagecart","Empty cart");
-		}
-		else{
-			model.addAttribute("cartList",cartDAO.getbyUser(loggedInUserid));
-			model.addAttribute("totalAmount",cartDAO.getTotalAmount(loggedInUserid));
-			model.addAttribute("displayCart",true);
 
+		String loggedInUserid = (String) session.getAttribute("loggedInUserID");
+
+		List<Cart> cartList = cartDAO.getActiveByUser(loggedInUserid);
+
+		if (cartList == null || cartList.isEmpty()) {
+			model.addAttribute("message", "Cart is empty !!!");
+			model.addAttribute("ShowMessage", true);
+		} else {
+			model.addAttribute("cartList", cartList);
+			model.addAttribute("totalAmount", cartDAO.getTotalAmount(loggedInUserid));
+			model.addAttribute("ShowCartTable", true);
 		}
-		
-	return "index";	
+
+		return "index";
 	}
-	@RequestMapping(value="/cart_add",method = RequestMethod.GET)
-	public ModelAndView addToCart(@RequestParam("productName") String productName , HttpSession session)
+	
+	@RequestMapping(value="/addToCart",method = RequestMethod.GET)
+	public ModelAndView addToCart(@RequestParam("productId") String productId , HttpSession session)
 	{
-		
-		//get the product based on product name
-		Product product =productDAO.get(productName);
 
-		
+		// get the product based on product name
+		Product product = productDAO.get(productId);
+
 		cart.setProductName(product.getName());
 		cart.setStock(1);
-		
-		
-		String loggedInUserMailID = (String)session.getAttribute("loggedInUserid");
-		
-		
-		
-	
-		
-	    cart.setId(ThreadLocalRandom.current().nextInt(100, 1000000 + 1));
-	
-	
-	cartDAO.save(cart);
-	
-	ModelAndView mv = new ModelAndView("/index");
-	mv.addObject("successMessage"," Successfully add the product to Cart");
+		cart.setPrice(product.getPrice());
+		String loggedInUserId = (String) session.getAttribute("loggedInUserID");
+		cart.setUser_id(loggedInUserId);
+		cart.setId(ThreadLocalRandom.current().nextInt(100, 1000000 + 1));
+		cart.setOrdered(0);
+		cartDAO.save(cart);
 
-    return mv;
+		int cartItemCount = (Integer) session.getAttribute("cartItemCount") + 1;
+		session.setAttribute("cartItemCount", cartItemCount);
+		
+		
+		ModelAndView mv = new ModelAndView("/index");
+		mv.addObject("message", "Successfully added the product to Cart !!!");
+		mv.addObject("ShowMessage", true);
+
+		return mv;
 	}
 	
-	@RequestMapping("/cart_delete")
-	public String removeCart(@RequestParam("id") int id, Model model) throws Exception
+	@RequestMapping("/manage_cart_remove")
+	public String removeCart(@RequestParam("id") int cartId, Model model, HttpSession session) throws Exception
 	{
-		
-		try{
-			
-			cartDAO.delete(id);
-			model.addAttribute("successMessage" , "Successfully Removed from your cart");
-			}
-		catch(Exception e)
-		{
-			model.addAttribute("message" , e.getMessage());
-			e.printStackTrace();
+		boolean flag = cartDAO.delete(cartId);
+		if (flag) {
+			model.addAttribute("message", "Successfully removed the item from your cart !!!");
+			int cartItemCount = (Integer) session.getAttribute("cartItemCount") - 1;
+			session.setAttribute("cartItemCount", cartItemCount);
+		} else {
+			model.addAttribute("message", "Error occurred !!!");
 		}
-		
-		return "redirect:/index";
+
+		model.addAttribute("ShowMessage", true);
+		return "index";
 	}
 
  

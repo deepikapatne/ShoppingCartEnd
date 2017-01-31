@@ -45,12 +45,16 @@ public class HomeController {
 	public ModelAndView onLoad(HttpSession session) {
 		log.debug("Starting of the method onLoad");
 		ModelAndView mv = new ModelAndView("/index");
-		session.setAttribute("loggedOut", true);
+		
+		if(session.getAttribute("loggedInUserID") == null) {
+			session.setAttribute("loggedOut", true);
+			session.setAttribute("supplierList", supplierDAO.list());
+			session.setAttribute("categoryList", categoryDAO.list());
+			session.setAttribute("subcategoryList", subcategoryDAO.list());
+			session.setAttribute("productList", productDAO.list());
+		}
+		
 		mv.addObject("ShowMainPage", true);
-		session.setAttribute("supplierList", supplierDAO.list());
-		session.setAttribute("categoryList", categoryDAO.list());
-		session.setAttribute("subcategoryList", subcategoryDAO.list());
-		session.setAttribute("productList", productDAO.list());
 		log.debug("Ending of the method onLoad");
 		return mv;
 	}
@@ -59,11 +63,15 @@ public class HomeController {
 	public ModelAndView home(HttpSession session) {
 		log.debug("Starting of the method onLoad");
 		ModelAndView mv = new ModelAndView("/index");
-		session.setAttribute("loggedOut", true);
+		
+		if(session.getAttribute("loggedInUserID") == null) {
+			session.setAttribute("loggedOut", true);
+			session.setAttribute("categoryList", categoryDAO.list());
+			session.setAttribute("subcategoryList", subcategoryDAO.list());
+			session.setAttribute("productList", productDAO.list());
+		}
+		
 		mv.addObject("ShowMainPage", true);
-		session.setAttribute("categoryList", categoryDAO.list());
-		session.setAttribute("subcategoryList", subcategoryDAO.list());
-		session.setAttribute("productList", productDAO.list());
 		log.debug("Ending of the method onLoad");
 		return mv;
 	}

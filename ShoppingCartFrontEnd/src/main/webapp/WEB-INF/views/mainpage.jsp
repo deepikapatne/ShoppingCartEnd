@@ -32,8 +32,14 @@
 									<div class="stars-in"></div>
 								</div>
 							</div>
+							<div>
+								<c:if test="${loggedOut == false}">
+								 <a href="<c:url value='/addToCart?productId=${product.id}'/>">Add to cart</a>
+								 </c:if>
+							</div>
 						</div>
 					</c:if>
+					
 					
 				</c:forEach>
 				

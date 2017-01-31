@@ -5,9 +5,9 @@
 <head>
 <title>MovieLibrary</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
-<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
-<script type="text/javascript" src="js/jquery-func.js"></script>
+<link rel="stylesheet" href="resources/css/style.css" type="text/css" media="all" />
+<script type="text/javascript" src="resources/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="resources/js/jquery-func.js"></script>
 
 <!--[if IE 6]><link rel="stylesheet" href="css/ie6.css" type="text/css" media="all" /><![endif]-->
 
@@ -78,7 +78,16 @@
 			
 			<c:if test="${ShowProductTable}">
 				<jsp:include page="producttable.jsp" />
-			</c:if>		
+			</c:if>	
+			
+			<c:if test="${ShowCartTable}">
+				<jsp:include page="carttable.jsp" />
+			</c:if>	
+			
+			<c:if test="${ShowShippingAddress}">
+				<jsp:include page="shippingAddress.jsp" />
+			</c:if>	
+			
 		<jsp:include page="footer.jsp" />
 		
 	</div>

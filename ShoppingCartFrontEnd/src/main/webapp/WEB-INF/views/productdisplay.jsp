@@ -35,6 +35,11 @@
 						<p>${product.name} : Rs ${product.price}.</p>
 						<p></p>
 					</div>
+					<div>
+						<c:if test="${loggedOut == false}">
+					 		<a href="<c:url value='/addToCart?productId=${product.id}'/>">Add to cart</a>
+						</c:if>
+					</div>
 				</div>
          	</c:forEach>
 		</div>

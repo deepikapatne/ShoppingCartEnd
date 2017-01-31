@@ -33,6 +33,7 @@
 		    </c:when>    
 		    <c:otherwise>
 		    	<li><a>Welcome ${loggedInUser}</a></li>
+		    	<li><a href="cartTable">Cart(${cartItemCount})</a></li>
 		        <li><a href="logout">LOGOUT</a></li>
 		    </c:otherwise>
 		</c:choose>
