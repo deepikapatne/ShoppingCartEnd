@@ -11,7 +11,7 @@ public interface CartDAO {
 	public boolean delete(int id);
 	public Cart get(int id);
 	public Long getTotalAmount(String userId);
-	public List<Cart> getbyUser(String userId);
+	public List<Cart> getActiveByUser(String userId);
 
 
 }

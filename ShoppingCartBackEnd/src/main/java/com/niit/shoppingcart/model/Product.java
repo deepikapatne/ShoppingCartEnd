@@ -1,5 +1,7 @@
 package com.niit.shoppingcart.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -15,7 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Table(name = "product")
 @Component
 
-public class Product {
+public class Product implements Serializable{
 	
 	/*public MultipartFile getImage() {
 		return image;

@@ -2,6 +2,7 @@ package com.niit.shoppingcart.config;
 
 import java.util.Properties;
 
+import javax.persistence.criteria.Order;
 import javax.sql.DataSource;
 
 import org.hibernate.SessionFactory;
@@ -14,8 +15,12 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.niit.shoppingcart.model.BillingAddress;
+import com.niit.shoppingcart.model.Cart;
 import com.niit.shoppingcart.model.Category;
+import com.niit.shoppingcart.model.PaymentMethod;
 import com.niit.shoppingcart.model.Product;
+import com.niit.shoppingcart.model.ShippingAddress;
 import com.niit.shoppingcart.model.SubCategory;
 import com.niit.shoppingcart.model.Supplier;
 import com.niit.shoppingcart.model.User;
@@ -62,7 +67,8 @@ public class ApplicationContextConfig {
 		sessionBuilder.addAnnotatedClass(Product.class);
 		sessionBuilder.addAnnotatedClass(Category.class);
 		sessionBuilder.addAnnotatedClass(SubCategory.class);
-	//	sessionBuilder.addAnnotatedClass(Cart.class);
+		sessionBuilder.addAnnotatedClass(Cart.class);
+		sessionBuilder.addAnnotatedClass(Order.class);
 
 		return sessionBuilder.buildSessionFactory();
 	}
