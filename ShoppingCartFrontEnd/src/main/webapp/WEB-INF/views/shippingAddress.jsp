@@ -21,7 +21,7 @@
 	<div class="container" style="margin-bottom: 19px">
 		<div id="shippingaddress" class="col-lg-12 well">
 			<div class="row">
-
+				<h4>Shipping Address</h4>
 				<form:form role="form" action="${flowExecutionUrl}&_eventId=submitShippingAddress" commandName="shippingAddress" method="post">
 					<div class="col-sm-12 form-group">
 						<label for="address">Address</label>
@@ -47,11 +47,8 @@
 					<input type="hidden" name="_flowExecutionKey" />
 
 					<div class="form-actions">
-						<button type="Submit" class="btn btn-lg btn-info " value="save"
-							style="margin-right: 44px; margin-left: 0px; color: white; background-color: grey">Next</button>
-						<button href="${flowExecutionUrl}&_eventId=cancel"
-							class="btn btn-lg btn-default" name="_eventId_cancel"
-							type="button">Cancel</button>
+						<button type="Submit" class="btn btn-lg btn-default" value="save" style="float: right">Next</button>
+						<a href="<c:url value='${flowExecutionUrl}&_eventId=cancel'/>" button class="btn btn-lg btn-default" style="float: right">Cancel</a>
 					</div>
 			</form:form>
 		</div>

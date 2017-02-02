@@ -15,7 +15,10 @@
 		<evaluate expression="orderWebflow.initFlow()" result="flowScope.order" /> 
 	</on-start>
 
-	<view-state id="flowExecutor" view="/shippingAddress" model="shippingAddress">
+	<view-state id="flowExecutor" view="/index" model="shippingAddress">
+		<on-entry>
+			<set name="viewScope.ShowShippingAddress" value="'true'" />
+		</on-entry>
 		<transition on="submitShippingAddress" to="shippingDetails" />
 	</view-state>
 
@@ -26,19 +29,24 @@
 		<transition on="fail" to="cart_checkout" />
 	</action-state>
 
-	<view-state id="viewBillingDetails" view="/billingAddress"
-		model="billingAddress">
+	<view-state id="viewBillingDetails" view="/index" model="billingAddress">
+		<on-entry>
+			<set name="viewScope.ShowBillingAddress" value="'true'" />
+		</on-entry>
 		<transition on="submitBillingAddress" to="billingDetails" />
-		<transition on="backToShippingAddress" to="cart_checkout" />
 	</view-state>
 
 	<action-state id="billingDetails">
 		<evaluate
 			expression="orderWebflow.addBillingAddress(flowScope.order,billingAddress)"></evaluate>
 		<transition on="success" to="viewPaymentDetails" />
+		<transition on="fail" to="cart_checkout" />
 	</action-state>
 
-	<view-state id="viewPaymentDetails" view="/payment" model="paymentMethod">
+	<view-state id="viewPaymentDetails" view="/index" model="paymentMethod">
+		<on-entry>
+			<set name="viewScope.ShowPayment" value="'true'" />
+		</on-entry>
 		<transition on="submitPaymentMethod" to="paymentDetails" />
 	</view-state>
 
@@ -48,7 +56,10 @@
 		<transition on="success" to="orderConfirm" />
 	</action-state>
 
-	<view-state id="orderConfirm" view="/orderConfirmed">
+	<view-state id="orderConfirm" view="/index">
+		<on-entry>
+			<set name="viewScope.ShowOrderConfirmed" value="'true'" />
+		</on-entry>
 		<transition on="finalIndex" to="toIndex" />
 	</view-state>
 

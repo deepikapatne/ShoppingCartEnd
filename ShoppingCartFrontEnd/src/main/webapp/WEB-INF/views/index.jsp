@@ -88,6 +88,18 @@
 				<jsp:include page="shippingAddress.jsp" />
 			</c:if>	
 			
+			<c:if test="${ShowBillingAddress}">
+				<jsp:include page="billingAddress.jsp" />
+			</c:if>
+			
+			<c:if test="${ShowPayment}">
+				<jsp:include page="payment.jsp" />
+			</c:if>
+			
+			<c:if test="${ShowOrderConfirmed}">
+				<jsp:include page="orderConfirmed.jsp" />
+			</c:if>
+			
 		<jsp:include page="footer.jsp" />
 		
 	</div>
