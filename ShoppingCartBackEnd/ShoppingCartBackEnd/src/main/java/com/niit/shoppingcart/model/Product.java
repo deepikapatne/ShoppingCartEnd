@@ -1,19 +1,36 @@
 package com.niit.shoppingcart.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table(name = "product")
 @Component
 
-public class Product {
+public class Product implements Serializable{
+	
+	/*public MultipartFile getImage() {
+		return image;
+	}
+
+	public void setImage(MultipartFile image) {
+		this.image = image;
+	}
+
+	@Transient
+	private MultipartFile image;
+	*/
+	
 
 	@Id
 	@Column(name = "id")

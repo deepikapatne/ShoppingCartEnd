@@ -13,9 +13,10 @@ import org.springframework.stereotype.Component;
 @Table(name = "cart")
 @Component
 
-public class Cart{
-
+public class Cart implements Serializable{
 	
+	private static final long serialVersionUID = 2183210161066479796L;
+
 	@Id
 	@Column(name = "cart_id")
 	private int id;
@@ -31,6 +32,9 @@ public class Cart{
 	
 	@Column(name = "stock")
 	private int stock ;
+	
+	@Column(name = "ordered")
+	private int ordered;
 	
 	
 	public int getId() {
@@ -71,6 +75,14 @@ public class Cart{
 
 	public void setStock(int stock) {
 		this.stock = stock;
+	}
+
+	public int getOrdered() {
+		return ordered;
+	}
+
+	public void setOrdered(int ordered) {
+		this.ordered = ordered;
 	}
 
 	
