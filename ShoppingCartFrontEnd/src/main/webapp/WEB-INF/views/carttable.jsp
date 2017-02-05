@@ -37,7 +37,7 @@
 					</c:forEach>
 				</tbody>
 				<tfoot>
-					<a href="cart_checkout">checkout</a>
+					<a href="cart_checkout" button class="btn btn-success btn-sm">Checkout</a>
 				</tfoot>
 			</table>
 		</div>

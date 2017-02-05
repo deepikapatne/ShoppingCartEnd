@@ -21,31 +21,31 @@
 					<div class="col-sm-12 form-group">
 					<h4>User ID</h4>
 						<input type="text" placeholder="Enter First Name.."
-							class="form-control" name="id" ></input>
+							class="form-control" name="id" required ></input>
 					</div>
 
 					<div class="col-sm-12 form-group">
 					<h4>Name</h4>
 						<input type="text" placeholder="Enter Name.."
-							class="form-control" name="name" ></input>
+							class="form-control" name="name" required ></input>
 					</div>
 
 					<div class="col-sm-12 form-group">
 					<h4>E-mail ID</h4>
 						<input type="text" placeholder="Enetr E-mail Id"
-							class="form-control" name="mail" ></input>
+							class="form-control" name="mail"  required></input>
 					</div>
 
 					<div class="col-sm-12 form-group">
 					<h4>Contact Number</h4>
 						<input type="text" placeholder="Enter Contact Number.."
-							class="form-control" name="contact" ></input>
+							class="form-control" name="contact" required></input>
 					</div>
 
                     <div class="col-sm-12 form-group">
 					<h4>Password</h4>
 						<input type="password" placeholder="Enter Password.."
-							class="form-control" name="password" ></input>
+							class="form-control" name="password" required ></input>
 					</div>                
       
 					<div class="form-actions">

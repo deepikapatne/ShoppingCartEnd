@@ -33,7 +33,7 @@
 								</div>
 							</div>
 							<div>
-								<c:if test="${loggedOut == false}">
+								<c:if test="${loggedOut == false && isAdmin == false}">
 								 <a href="<c:url value='/addToCart?productId=${product.id}'/>">Add to cart</a>
 								 </c:if>
 							</div>

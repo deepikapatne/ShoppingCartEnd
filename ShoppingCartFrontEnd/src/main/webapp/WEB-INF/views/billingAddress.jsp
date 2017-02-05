@@ -29,30 +29,29 @@
 
 					<div class="col-sm-12 form-group">
 						<label for="address">Address</label>
-						<form:textarea type="text" class="form-control" path="line1"></form:textarea>
+						<input type="text" class="form-control" path="line1" required></input>
 					</div>
 					<div class="col-sm-12 form-group">
 						<label for="city">City</label>
-						<form:input type="text" class="form-control" path="city"></form:input>
+						<input type="text" class="form-control" path="city" return="true" required></input>
 					</div>
 					<div class="col-sm-12 form-group">
 						<label for="state">State</label>
-						<form:input type="text" class="form-control" path="state"></form:input>
+						<input type="text" class="form-control" path="state" return="true" required></input>
 					</div>
 					<div class="col-sm-12 form-group">
 						<label for="country">Country</label>
-						<form:input type="text" class="form-control" path="country"></form:input>
+						<input type="text" class="form-control" path="country" return="true" required></input>
 					</div>
 					<div class="col-sm-12 form-group">
 						<label for="zipcode">Zipcode</label>
-						<form:input type="text" class="form-control" path="zipcode"
-							pattern="^[1-9][0-9]{5}$"></form:input>
+						<input type="text" class="form-control" path="zipcode" return="true" pattern="^[1-9][0-9]{5}$" required></input>
 					</div>
 					<input type="hidden" name="_flowExecutionKey" />
 
 					<div class="form-actions">
 						<button type="Submit" class="btn btn-lg btn-default" name="_eventID_submitBillingAddress" style="float: right">Next</button>
-						<a href="<c:url value='${flowExecutionUrl}&_eventId=cancel'/>" button class="btn btn-lg btn-default" style="float: right">Cancel</a>
+						<a href="${flowExecutionUrl}&_eventId=cancel" button class="btn btn-lg btn-default" style="float: right">Cancel</a>
 					</div>
 			</div>
 			</form:form>

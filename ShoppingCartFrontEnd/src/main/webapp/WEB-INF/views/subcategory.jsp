@@ -14,27 +14,27 @@
 </head>
 <body>
 <div class="container" >
-  <div id="subcategory" class="col-lg-12 well">
+  <div id="subcategory" method="post" class="col-lg-12 well">
     <div class="row">
-    <form  action="addsubcategory" method="post" >
+    <form  action="addsubcategory">
       <div class="col-sm-12">
         <div class="row">
           	<div class="col-sm-12 form-group">
               <h4>ID</h4>
                 <input type="text" placeholder="Enter ID.."
-                  class="form-control" name="id" value=${subcategory.id}></input>
+                  class="form-control" name="id" value="${subcategory.id}" required></input>
               </div>
 
               <div class="col-sm-12 form-group">
               <h4>Name</h4>
                 <input type="text" placeholder="Enter Name.."
-                  class="form-control"  name="name" value=${subcategory.name}></input>
+                  class="form-control"  name="name" value="${subcategory.name}" required></input>
               </div>
               
               <div class="col-sm-12 form-group">
               <h4>Description</h4>
                 <textarea type="text" placeholder="Enter Description"
-                  class="form-control" name="description">${subcategory.description}</textarea>
+                  class="form-control" name="description" required>${subcategory.description}</textarea>
               </div>
 
             <div class="form-actions">
@@ -45,8 +45,8 @@
     </form>
 
      <div class="form-actions " style="float: right; padding-top: 10px; font-weight:bold;">
-              <a href="subcategorytable">View Sub Category</a>
-            </div>
+     	<a href="subcategorytable" button class="btn btn-success btn-sm">View Sub Category</a>
+     </div>
       
     </div>
   </div>

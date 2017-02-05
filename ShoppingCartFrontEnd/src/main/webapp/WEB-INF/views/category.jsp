@@ -17,25 +17,25 @@
 <div class="container" >
   <div id="category" class="col-lg-12 well">
     <div class="row">
-    <form  action="addcategory" method="post" >
+    <form  action="addcategory" method="post">
       <div class="col-sm-12">
         <div class="row">
           	  <div class="col-sm-12 form-group">
               <h4>ID</h4>
                 <input type="text" placeholder="Enter ID.."
-                  class="form-control" name="id" value=${category.id}></input>
+                  class="form-control" name="id" value="${category.id}" required></input>
               </div>
 
               <div class="col-sm-12 form-group">
               <h4>Name</h4>
                 <input type="text" placeholder="Enter Name.."
-                  class="form-control"  name="name" value=${category.name}></input>
+                  class="form-control"  name="name" value="${category.name}" required></input>
               </div>
               
               <div class="col-sm-12 form-group">
               <h4>Description</h4>
                 <textarea type="text" placeholder="Enter Description"
-                  class="form-control" name="description">${category.description}</textarea>
+                  class="form-control" name="description" required>${category.description}</textarea>
               </div>
 
               <div class="form-actions">
@@ -45,7 +45,9 @@
       </div>
     </form>
 
-     <div class="form-actions" style="float: right; padding-top: 10px; font-weight:bold;"><a href="categorytable">View Category</a></div>
+     <div class="form-actions" style="float: right; padding-top: 10px; font-weight:bold;">
+     	<a href="categorytable" button class="btn btn-success btn-sm">View Category</a>
+     </div>
       
     </div>
   </div>

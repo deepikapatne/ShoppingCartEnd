@@ -22,35 +22,35 @@
         <div class="row">
           	<div class="col-sm-6 form-group">
               <h4>ID</h4>
-                <input type="text"  name="id" placeholder="ID" required value=${product.id}>
+                <input type="text"  name="id" placeholder="ID" required value="${product.id}">
               </div>
 
               <div class="col-sm-6 form-group">
               <h4>Name</h4>
-                <input type="name" name="name" placeholder="Name" required value=${product.name}>
+                <input type="name" name="name" placeholder="Name" required value="${product.name}">
               </div>
            	  <div class="col-sm-6 form-group">
               <h4>Stock</h4>
-                <input type="number"  name="stock" placeholder="Stock" required value=${product.stock}>
+                <input type="number"  name="stock" placeholder="Stock" required value="${product.stock}">
               </div>
                <div class="col-sm-6 form-group">
               <h4>Price</h4>
-              <input type="number"  name="price" placeholder="Price" required value=${product.price}>
+              <input type="number"  name="price" placeholder="Price" required value="${product.price}">
               </div>
 
               <div class="col-sm-6 form-group">
               <h4>Category_Id</h4>
-                 <input type="text"  name="category_id" placeholder="ID" required value=${product.category_id}>
+                 <input type="text"  name="category_id" placeholder="ID" required value="${product.category_id}">
               </div>
               
               <div class="col-sm-6 form-group">
               <h4>SubCategory_Id</h4>
-                 <input type="text"  name="subcategory_id" placeholder="ID" required value=${product.subcategory_id}>
+                 <input type="text"  name="subcategory_id" placeholder="ID" required value="${product.subcategory_id}">
               </div>
 
               <div class="col-sm-6 form-group">
               <h4>Supplier_Id</h4>
-                <input type="text"  name="supplier_id" placeholder="ID" required value=${product.supplier_id}>
+                <input type="text"  name="supplier_id" placeholder="ID" required value="${product.supplier_id}">
               </div>
 
 
@@ -77,7 +77,7 @@
     </form>
 
     		<div class="form-actions" style="float: right; font-weight:bold;">
-              <a href="producttable">View Product</a>
+    			<a href="producttable" button class="btn btn-success btn-sm">View Product</a>
             </div>
       
     </div>

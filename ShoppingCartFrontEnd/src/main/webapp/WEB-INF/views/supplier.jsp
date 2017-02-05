@@ -15,25 +15,25 @@
 <div class="container" >
   <div id="supplier" class="col-lg-12 well">
     <div class="row">
-    <form  action="addsupplier" method="post" >
+    <form  action="addsupplier" method="post">
       <div class="col-sm-12">
         <div class="row">
          	 <div class="col-sm-12 form-group">
               <h4>ID</h4>
                 <input type="text" placeholder="Enter ID.."
-                  class="form-control" name="id" value=${supplier.id}></input>
+                  class="form-control" name="id" value="${supplier.id}" required></input>
               </div>
 
               <div class="col-sm-12 form-group">
               <h4>Name</h4>
                 <input type="text" placeholder="Enter Name.."
-                  class="form-control"  name="name" value=${supplier.name}></input>
+                  class="form-control"  name="name" value="${supplier.name}" required></input>
               </div>
               
               <div class="col-sm-12 form-group">
               <h4>Address</h4>
                 <textarea type="text" placeholder="Enter Address"
-                  class="form-control" name="address" >${supplier.address}</textarea>
+                  class="form-control" name="address" required>${supplier.address}</textarea>
               </div>
 
             <div class="form-actions">
@@ -44,7 +44,7 @@
       </div>
     </form>
      	<div class="form-actions " style="float: right; padding-top: 10px; font-weight:bold;">
-              <a href="suppliertable">View Supplier</a>
+              <a href="suppliertable" button class="btn btn-success btn-sm">View Supplier</a>
             </div>
       
     </div>

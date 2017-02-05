@@ -33,8 +33,12 @@
 		    </c:when>    
 		    <c:otherwise>
 		    	<li><a>Welcome ${loggedInUser}</a></li>
-		    	<li><a href="cartTable">Cart(${cartItemCount})</a></li>
+		    	<c:if test="${isAdmin == false}">
+			    	<li><a href="cartTable">Cart(${cartItemCount})</a></li>
+		        </c:if>
 		        <li><a href="logout">LOGOUT</a></li>
+		        
+		        
 		    </c:otherwise>
 		</c:choose>
 			
@@ -63,10 +67,11 @@
 		</c:choose>
 		</ul>
 		<div id="search">
-			<form action="#" method="get" accept-charset="utf-8">
-				<label for="search-field">SEARCH</label> <input type="text"
-					name="search field" value="Enter search here" id="search-field"
-					class="blink search-field" /> <input type="submit" value="GO!"
+			<form action="search" method="get" accept-charset="utf-8">
+				<label for="search-field">SEARCH</label> 
+				<input type="text"name="searchKey" value="Enter search here" id="search-field"
+					class="blink search-field" /> 
+					<input type="submit" value="GO!"
 					class="search-button" />
 			</form>
 		</div>
