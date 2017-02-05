@@ -67,7 +67,7 @@ public class CartDAOImpl implements CartDAO, Serializable{
 
 	@Transactional
 	public Cart get(int id) {
-		String hql = "from Cart where cartid= " + "'" + id + "'";
+		String hql = "from Cart where id= " + "'" + id + "'";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 
 		List<Cart> listCart = (List<Cart>) query.list();
