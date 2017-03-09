@@ -71,7 +71,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.and()
 		  .exceptionHandling().accessDeniedPage("/accessDenied")
 		.and()
-		  .csrf().ignoringAntMatchers("/addcategory", "addsubcategory", "/addsupplier", "/addproduct");
+		  .csrf().ignoringAntMatchers("/addcategory", "addsubcategory", "/addsupplier", "/addproduct", "/validate",  "/register");
 	}
 	
 	 @Bean(name="myAuthenticationManager")
